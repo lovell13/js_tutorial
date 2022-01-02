@@ -14,17 +14,19 @@ If this be error and upon me proved,
 I never writ, nor no man ever loved.`;
 
 // Unique words
-let uniques = {};
+let uniques = new Map();
 // All words in the text
-let words = sonnet.match(/\w+/g);
+//let words = sonnet.match(/\w+'/g);
+let words = sonnet.match(/\w+'\w+|\w+/g);
 
 // Iterate through `words` and build up an associative array of unique words.
 for (let i = 0; i < words.length; i++) {
     let word = words[i];
-    if (uniques[word]) {
-        uniques[word] += 1;
+    let currentValue = uniques.get(word);
+    if (!!uniques.get(word)) {
+        uniques.set(word, currentValue + 1);
     } else {
-        uniques[word] = 1;
+        uniques.set(word, 1);
     }
 }
 
