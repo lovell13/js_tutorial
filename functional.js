@@ -25,7 +25,6 @@ console.log(functionalUrls(states));
 // makeUrl function - take in the state variable, return an array of URLs.
 function makeUrl(inputs) {
     let urlTemplate = "https://example.com/";
-    let fullUrls = [];
     return inputs.map(inputs => urlTemplate.concat(inputs));
 }
 console.log(makeUrl(functionalUrls(states)));
