@@ -1,10 +1,11 @@
 // Reverses a string.
 function reverse(string) {
-    return string.split("").reverse().join("");
+    return Array.from(string).reverse().join("");
 }
 
 // Returns true for a palindrome, false otherwise.
 function palindrome(string) {
-    return string === reverse(string);
+    let processedContent = string.toLowerCase();
+    return processedContent === reverse(processedContent);
 }
 
