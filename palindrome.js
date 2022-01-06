@@ -18,4 +18,12 @@ function Phrase(content) {
         let processedContent = this.content.toLowerCase();
         return processedContent === reverse(processedContent);
     }
+
+    // Makes the phrase LOUDER.
+    this.louder = function() {
+        let louderContent = this.content.toUpperCase();
+        return louderContent;
+    };
 }
+
+
