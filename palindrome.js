@@ -1,3 +1,8 @@
+// Adds `reverse` to all strings.
+String.prototype.reverse = function() {
+    return Array.from(this).reverse().join("");
+}
+
 // Reverses a string.
 function reverse(string) {
     return Array.from(string).reverse().join("");
@@ -13,17 +18,18 @@ function palindrome(string) {
 function Phrase(content) {
     this.content = content;
 
-    // Returns true if the phrase is a palindrome, false otherwise.
-    this.palindrome = function palindrome() {
-        let processedContent = this.content.toLowerCase();
-        return processedContent === reverse(processedContent);
+    this.processor = function(string) {
+        let content = string;
+        return content.toLowerCase();
     }
 
-    // Makes the phrase LOUDER.
-    this.louder = function() {
-        let louderContent = this.content.toUpperCase();
-        return louderContent;
-    };
+    // Returns content processed for palindrome testing.
+    this.processedContent = function processedContent() {
+        return this.processor(this.content);
+    }
+        
+    // Returns true if the phrase is a palindrome, false otherwise.
+    this.palindrome = function palindrome() {
+        return this.processedContent() === this.processedContent().reverse();
+    }
 }
-
-
