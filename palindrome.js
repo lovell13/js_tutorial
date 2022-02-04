@@ -3,6 +3,16 @@ String.prototype.reverse = function() {
     return Array.from(this).reverse().join("");
 }
 
+// Adds 'blank' method to all strings.
+String.prototype.blank = function() {
+    return !!this.match(/\s|^$/g);
+}
+
+// Adds 'last' method to all arrays, returning the last element.
+Array.prototype.last = function() {
+    return console.log(this[this.length - 1]);
+}
+
 // Reverses a string.
 function reverse(string) {
     return Array.from(string).reverse().join("");
